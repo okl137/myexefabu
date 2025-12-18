@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1020">
+<title>开发工具下载与更新</title>
+<link rel="preload" href="/myexefabu/styles.css" as="style">
+<link rel="stylesheet" href="/myexefabu/styles.css">
+</head>
+<body>
+<div class="background">
+  <canvas id="field"></canvas>
+</div>
+<header class="navbar glass">
+  <div class="brand tilt">版本更新与发布网站</div>
+  <div class="nav-actions">
+    <button id="accentPicker" class="btn glass">主题色</button>
+    <button id="themeToggle" class="btn glass" aria-pressed="false">切换主题</button>
+    <button id="downloadBtn" class="btn primary glass" data-download-url="https://files.zohopublic.com.cn/public/workdrive-public/download/54hdq78a864c61d124fa8ab2d157494b71f2f?x-cli-msg=%7B%22linkId%22%3A%221HzkJmx6Sl3-36yJl%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D">下载</button>
+    <button id="changelogBtn" class="btn glass">更新说明</button>
+  </div>
+</header>
+<main class="container">
+  <section class="hero glass tilt">
+    <h1>你好，我是<span class="accent">OKL137</span></h1>
+    <p class="subtitle">一个热爱创造的开发者，关注项目前端体验与可视化，偏好设计与流体质感。</p>
+    <div class="cta">
+      <a class="btn primary glass" id="viewRepo" href="https://github.com/okl137/myexefabu" target="_blank" rel="noopener">前往仓库</a>
+      <a class="btn ghost glass" href="#projects">查看项目</a>
+    </div>
+  </section>
+  <section class="cards" id="about">
+    <div class="card glass tilt">
+      <h2>关于我</h2>
+      <p>喜欢把复杂问题变成简单优雅的解决方案。对重复性工作流程的深入研究和改革优化，积极项目优化迭代，协助团队高效工作。</p>
+    </div>
+    <div class="card glass tilt">
+      <h2>技能</h2>
+      <p>Python、数据可视化、自动化脚本、UI 动效、工作流程优化；持续学习与分享，保持好奇。</p>
+    </div>
+    <div class="card glass tilt">
+      <h2>联系</h2>
+      <p>GitHub、邮箱、社媒均可联系。欢迎沟通与交流。</p>
+    </div>
+  </section>
+  <section class="section-title" id="projects">
+    <h2>项目精选</h2>
+    <p>以下是一些正在开发的项目 点击卡片可了解更多</p>
+  </section>
+  <section class="grid">
+    <article class="project glass tilt">
+      <h3>开发工具</h3>
+      <p>开发工具 聚焦性能与体验的前后端文件处理应用，采用液态玻璃视觉语言 多文档一键同步处理 简化工作流程 提高工作效率</p>
+      <div class="project-actions">
+        <button class="btn glass open-info">说明</button>
+      </div>
+    </article>
+  </section>
+</main>
+<footer class="footer glass">
+  <div class="footer-inner">
+    <span>© <span id="year"></span> OKL137</span>
+    <div class="footer-actions">
+      <a href="https://github.com/okl137/myexefabu" target="_blank" rel="noopener" class="btn ghost glass">GitHub</a>
+      <a href="mailto:2532399515@qq.com" class="btn ghost glass">Email</a>
+    </div>
+  </div>
+</footer>
+<div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+  <div class="modal glass" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-header">
+      <h3 id="modalTitle">更新说明</h3>
+      <button id="modalClose" class="btn icon glass" aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body" id="changelogBody">
+      <div class="timeline">
+        <div class="log">
+          <div class="ver">v3.3</div>
+          <div class="msg">
+            <ul>
+              <li>修改同步算价修改和克重修改</li>
+              <li>现版本支持更新后的算价计算要求 审核表已发群</li>
+              <li>本次更新只需下载钉钉中的最新审核表模版</li>
+              <li>新增多个中英文翻译接口 首次翻译失败后调用多接口协调处理翻译工作 减少翻译失败弹窗出现概率</li>
+            </ul>
+          </div>
+          <div class="date">2025-12-18</div>
+        </div>
+        <div class="log">
+          <div class="ver">v3.2</div>
+          <div class="msg">
+            <ul>
+              <li>修复临时sku生成和供应商名称生成冲突导致供应商名称获取失败问题</li>
+              <li>包装尺寸原[]指定现在增加支持【】《》&lt;&gt;框指定</li>
+              <li>美化重构悬浮球模块 全新悬浮球动画 全新悬浮球交互体验 功能无特别变换 逻辑一致</li>
+              <li>亮暗色主题新增记忆 下次打开为上次记忆的主题模式 无需重复切换</li>
+            </ul>
+          </div>
+          <div class="date">2025-12-13</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn primary glass" id="modalConfirm">知道了</button>
+    </div>
+  </div>
+</div>
+<div class="picker glass" id="picker">
+  <button class="swatch" data-accent="#6ee7ff"></button>
+  <button class="swatch" data-accent="#a78bfa"></button>
+  <button class="swatch" data-accent="#22d3ee"></button>
+  <button class="swatch" data-accent="#fb7185"></button>
+  <button class="swatch" data-accent="#34d399"></button>
+</div>
+<script src="/myexefabu/script.js"></script>
+</body>
+</html>
