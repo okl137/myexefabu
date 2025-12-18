@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品信息处理工具 - 智能与优雅</title>
+    <link rel="stylesheet" href="/myexefabu/style.css">
+    <link rel="stylesheet" href="/myexefabu/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="code-background">
+        <canvas id="codeCanvas"></canvas>
+    </div>
+    <div class="code-background-right">
+        <canvas id="codeCanvasRight"></canvas>
+    </div>
+
+    <nav class="glass-nav">
+        <div class="logo">开发工具</div>
+        <div class="nav-links">
+            <a href="#hero" class="active">首页</a>
+            <a href="#ball">悬浮球</a>
+            <div class="nav-item-dropdown">
+                <a href="#automation">自动化流</a>
+                <div class="dropdown-menu">
+                    <a href="#automation">智能文档自动化</a>
+                    <a href="#secondary-edit">二次简化编辑</a>
+                    <a href="#sku">SKU 编辑器</a>
+                </div>
+            </div>
+            <a href="#translate">智能翻译</a>
+            <a href="#ui">液态UI</a>
+            <a href="#changelog">更新日志</a>
+        </div>
+        <a href="#download" class="btn-download-nav">立即下载</a>
+    </nav>
+
+    <main>
+        <section id="hero" class="section hero-section">
+            <div class="glass-card hero-card tilt-effect">
+                <h1>产品信息处理工具 <span class="version-tag">v3.4</span></h1>
+                <p class="subtitle">智能数据处理 · 高效工作流程 · 液态视觉体验</p>
+                <div class="hero-actions">
+                    <a href="#download" class="btn-primary glass-btn">
+                        <span class="icon">↓</span> 获取最新版
+                    </a>
+                    <a href="https://github.com/okl137/myexefabu" target="_blank" class="btn-secondary glass-btn">
+                        <span class="icon">★</span> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="ball" class="section feature-section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2>灵动悬浮球</h2>
+                    <p>打破传统交互界限。不仅仅是工具入口，更是多功能控制中心。</p>
+                    <ul class="feature-list">
+                        <li><b>多功能切换</b>：图片处理（重命名/改尺寸/归类）、汇率换算</li>
+                        <li><b>果冻交互</b>：点击体验 Q 弹质感，双击切换功能视图</li>
+                        <li><b>智能边缘吸附</b>：随手拖拽，自动贴边隐藏</li>
+                    </ul>
+                </div>
+                <div class="interactive-demo">
+                    <div class="jelly-ball-container" id="ballContainer">
+                        <div class="jelly-ball" id="jellyBall">
+                            <span class="ball-icon">✦</span>
+                            <div class="shine"></div>
+                        </div>
+                        
+                        <!-- Feature Demos Hologram -->
+                        <div class="holo-container">
+                            <!-- Scene 1: Image Processing -->
+                            <div class="holo-scene scene-img">
+                                <div class="img-stack">
+                                    <div class="img-card c1"></div>
+                                    <div class="img-card c2"></div>
+                                    <div class="img-card c3"></div>
+                                </div>
+                                <div class="scan-beam"></div>
+                                <div class="process-status">
+                                    <span class="status-text">BATCH_RESIZE</span>
+                                    <div class="status-bar"><div class="bar-fill"></div></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Scene 2: Currency -->
+                            <div class="holo-scene scene-calc">
+                                <div class="floating-rate">
+                                    <div class="currency us">
+                                        <span class="symbol">$</span>
+                                        <span class="amount">100.00</span>
+                                    </div>
+                                    <div class="exchange-arrow">
+                                        <div class="arrow-body"></div>
+                                        <div class="rate-tag">x 7.25</div>
+                                    </div>
+                                    <div class="currency cn">
+                                        <span class="symbol">¥</span>
+                                        <span class="amount counter">725.00</span>
+                                    </div>
+                                </div>
+                                <svg class="trend-line" viewBox="0 0 100 30">
+                                    <path d="M0,20 Q20,5 40,15 T80,10 T100,20" fill="none" stroke="var(--accent-tertiary)" stroke-width="2" />
+                                </svg>
+                            </div>
+
+                            <!-- Scene 3: Files -->
+                            <div class="holo-scene scene-files">
+                                <div class="folder-hub">
+                                    <div class="folder-back"></div>
+                                    <div class="folder-paper"></div>
+                                    <div class="folder-front"></div>
+                                    <div class="folder-glow"></div>
+                                </div>
+                                <div class="file-particles">
+                                    <div class="f-part p1">PDF</div>
+                                    <div class="f-part p2">JPG</div>
+                                    <div class="f-part p3">XLS</div>
+                                    <div class="f-part p4">DOC</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="hint">点击体验 Q 弹 · 双击切换功能演示</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="automation" class="section feature-section reverse">
+            <div class="content-wrapper">
+                <div class="interactive-demo">
+                    <div class="automation-demo no-border" id="automationDemo">
+                        <div class="automation-inner">
+                            <div class="source-group">
+                                <div class="source-wrapper w1">
+                                    <div class="doc-icon doc-source-multi s1"><span class="file-type">XLSX</span></div>
+                                    <div class="bits-explode">010101</div>
+                                </div>
+                                <div class="source-wrapper w2">
+                                    <div class="doc-icon doc-source-multi s2"><span class="file-type">CSV</span></div>
+                                    <div class="bits-explode">010101</div>
+                                </div>
+                                <div class="source-wrapper w3">
+                                    <div class="doc-icon doc-source-multi s3"><span class="file-type">TXT</span></div>
+                                    <div class="bits-explode">010101</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Fiber Optic Path -->
+                            <div class="fiber-path">
+                                <div class="fiber-line"></div>
+                                <div class="binary-packets">
+                                    <span class="single-stream">01010</span>
+                                </div>
+                            </div>
+
+                            <div class="doc-icon doc-target">
+                                <span class="file-type">DOCS</span>
+                                <div class="doc-stack"></div>
+                                <div class="calc-badge">Generated</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h2>智能文档自动化</h2>
+                    <p>告别繁琐的复制粘贴。自动抓取表格详细数据，一键生成标准化的文本文档和报表。</p>
+                    <ul class="feature-list">
+                        <li><b>数据自动算价</b>：智能调整和计算文本文档中的价格数据</li>
+                        <li><b>批量同步处理</b>：多文档一键生成，自动识别字段</li>
+                        <li><b>结构化输出</b>：自动生成标准格式文档，大幅降低重复劳动</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Secondary Simplified Editing -->
+        <section id="secondary-edit" class="section feature-section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2>二次简化编辑</h2>
+                    <p>智能连接文档处理与 SKU 编辑。一键勾选，自动提取关键数据并填入 SKU 表单，实现无缝工作流。</p>
+                    <ul class="feature-list">
+                        <li><b>智能联动</b>：打通文档与 SKU 系统</li>
+                        <li><b>自动填充</b>：关键数据一键同步</li>
+                        <li><b>极速流转</b>：减少人工录入错误</li>
+                    </ul>
+                </div>
+                <div class="interactive-demo">
+                    <div class="secondary-edit-demo" id="secondaryDemo">
+                        <!-- Step 1: Config -->
+                        <div class="step-config">
+                            <div class="window-floater">
+                                <div class="config-window">
+                                    <div class="win-title">Settings</div>
+                                    <div class="cfg-row">
+                                        <div class="cb-wrapper">
+                                            <svg class="cb-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="currentColor"/></svg>
+                                        </div>
+                                        <span class="cfg-text">Link Documents</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Connection Animation -->
+                        <div class="step-connect">
+                            <div class="icon-node doc-node">
+                                <svg viewBox="0 0 24 24" class="node-icon"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="currentColor"/></svg>
+                            </div>
+                            
+                            <div class="connection-flow">
+                                <div class="flow-line"></div>
+                                <div class="flow-particles">
+                                    <div class="flow-p p1"></div>
+                                    <div class="flow-p p2"></div>
+                                    <div class="flow-p p3"></div>
+                                </div>
+                            </div>
+
+                            <div class="icon-node sku-node">
+                                <svg viewBox="0 0 24 24" class="node-icon"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" fill="currentColor"/></svg>
+                                <div class="node-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sku" class="section feature-section reverse">
+            <div class="content-wrapper">
+                <div class="interactive-demo">
+                    <div class="sku-hub-demo" id="skuDemo">
+                        <div class="sku-scene-wrapper">
+                            <!-- 3D Prism Core -->
+                            <div class="sku-prism-container">
+                                <div class="sku-prism">
+                                    <div class="prism-face front"></div>
+                                    <div class="prism-face back"></div>
+                                    <div class="prism-face right"></div>
+                                    <div class="prism-face left"></div>
+                                    <div class="prism-face top"></div>
+                                    <div class="prism-face bottom"></div>
+                                    <div class="prism-inner-glow"></div>
+                                </div>
+                            </div>
+
+                            <!-- Target Files -->
+                            <div class="sku-target-file t1">
+                                <div class="file-glass"></div>
+                                <span class="file-label">文档</span>
+                            </div>
+                            <div class="sku-target-file t2">
+                                <div class="file-glass"></div>
+                                <span class="file-label">表格</span>
+                            </div>
+                            <div class="sku-target-file t3">
+                                <div class="file-glass"></div>
+                                <span class="file-label">系统</span>
+                            </div>
+
+                            <!-- Energy Beams -->
+                            <div class="energy-beam b1"></div>
+                            <div class="energy-beam b2"></div>
+                            <div class="energy-beam b3"></div>
+
+                            <!-- Data Particles -->
+                            <div class="data-particle dp1">SKU</div>
+                            <div class="data-particle dp2">NO.</div>
+                            <div class="data-particle dp3">SKU</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h2>SKU 编辑器</h2>
+                    <p>一站式 SKU 管理中心。自动获取多文档信息集成在一个窗口，简化繁琐的编辑流程。</p>
+                    <ul class="feature-list">
+                        <li><b>一站式集成</b>：无需打开多个文件，所有信息一目了然</li>
+                        <li><b>智能获取</b>：自动抓取文档关键信息</li>
+                        <li><b>高效分发</b>：新增货号分发，与 SKU 轮流自动同步至多个文件</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="translate" class="section feature-section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2>多源智能翻译</h2>
+                    <p>集成了 Google、LibreTranslate 等多个翻译接口。自动检测、自动降级，确保翻译成功率。</p>
+                    <ul class="feature-list">
+                        <li>智能中英互译</li>
+                        <li>自动失败重试</li>
+                        <li>专业术语准确匹配</li>
+                    </ul>
+                </div>
+                <div class="interactive-demo">
+                    <div class="translation-demo no-border">
+                        <div class="trans-card source">
+                            <div class="lang-tag">中文</div>
+                            <div class="trans-text-content">
+                                <span class="char c1">智</span><span class="char c2">能</span><span class="char c3">翻</span><span class="char c4">译</span>
+                            </div>
+                            <div class="scan-light"></div>
+                        </div>
+                        
+                        <div class="trans-process">
+                            <div class="particle-stream"></div>
+                            <div class="icon-transform">⟳</div>
+                        </div>
+
+                        <div class="trans-card target">
+                            <div class="lang-tag">English</div>
+                            <div class="trans-text-content">
+                                <span class="word w1">AI</span> <span class="word w2">Translate</span>
+                            </div>
+                            <div class="shimmer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ui" class="section feature-section reverse">
+            <div class="content-wrapper">
+                <div class="interactive-demo">
+                    <div class="liquid-ui-demo" id="liquidUiDemo">
+                        <div class="liquid-window">
+                            <div class="window-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="skeleton-line title"></div>
+                            <div class="skeleton-line"></div>
+                            <div class="skeleton-line"></div>
+                            <div class="skeleton-line short"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h2>液态玻璃 UI</h2>
+                    <p>深度定制的 PyQt5 界面，带来前所未有的桌面应用体验。</p>
+                    <ul class="feature-list">
+                        <li>支持亮/暗色主题自动切换</li>
+                        <li>Apple 风格磨砂玻璃质感</li>
+                        <li>流畅的液态形变动画</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="changelog" class="section changelog-section">
+            <div class="glass-card wide-card">
+                <h2>版本更新记录</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="version">v3.4</div>
+                        <div class="content">
+                            <ul>
+                                <li>优化多接口翻译逻辑流程 避免多接口调用冲突导致翻译失败返回中文原文</li>
+                                <li>勾选sku编辑器后显示实时弹窗进度 避免等待时间过长导致错误判断为程序卡顿</li>
+                            </ul>
+                        </div>
+                        <div class="date">2025-12-18</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="version">v3.3</div>
+                        <div class="content">
+                            <ul>
+                                <li>修改同步算价修改和克重修改，支持最新审核表模版</li>
+                                <li>新增多个中英文翻译接口，智能协调处理，大幅减少翻译失败概率</li>
+                            </ul>
+                        </div>
+                        <div class="date">2025-12-18</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="version">v3.2</div>
+                        <div class="content">
+                            <ul>
+                                <li>修复临时 SKU 生成与供应商名称冲突问题</li>
+                                <li>包装尺寸支持【】《》&lt;&gt; 等多种括号格式</li>
+                                <li><b>重构悬浮球模块</b>：全新动画与交互体验，逻辑保持一致</li>
+                                <li>新增主题记忆功能，自动保持上次使用的亮/暗模式</li>
+                            </ul>
+                        </div>
+                        <div class="date">2025-12-13</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="section download-section">
+            <div class="glass-card center-card tilt-effect">
+                <h2>准备好提升效率了吗？</h2>
+                <p>立即下载最新版本，体验极速工作流。</p>
+                <a href="https://files.zohopublic.com.cn/public/workdrive-public/download/54hdq031eb30ce30340388141aad5f81719ec?x-cli-msg=%7B%22linkId%22%3A%221HzkJmx6Sl4-36yJl%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D" class="btn-primary glass-btn large">
+                    下载 v3.4 Release
+                </a>
+                <p class="file-info">Windows x64 | .zip | 2025-12-18 Update</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <p>© 2025 OKL137. All Rights Reserved.</p>
+        <div class="links">
+            <a href="https://github.com/okl137/myexefabu">GitHub</a>
+            <a href="mailto:2532399515@qq.com">Contact</a>
+        </div>
+    </footer>
+
+    <script src="/myexefabu/script.js"></script>
+</body>
+</html>
