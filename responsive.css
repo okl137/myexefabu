@@ -1,0 +1,311 @@
+
+/* --- Responsive Design --- */
+
+/* Tablet & Smaller Laptops */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        flex-direction: column;
+        gap: 4rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .reverse .content-wrapper {
+        flex-direction: column; 
+    }
+    
+    /* Ensure visual order is consistent: Visual First (Top), Text Second (Bottom) */
+    .content-wrapper > .interactive-demo {
+        order: -1;
+        margin-bottom: 2rem;
+        flex: 1; /* Reset flex on column layout */
+        transform: scale(1.2); /* Even larger on tablet column view */
+    }
+
+    .text-content {
+        max-width: 800px;
+        align-items: center; /* For flex text content if any */
+        margin: 0 auto;
+    }
+
+    .feature-list {
+        text-align: left;
+        display: inline-block; /* Allows text-align: left within centered container */
+    }
+
+    .section {
+        min-height: auto; /* Allow content to dictate height */
+        padding: 4rem 1.5rem;
+    }
+
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.5rem; }
+    
+    /* Scale UP Demos for Tablet to match text better */
+    .interactive-demo {
+        min-height: 450px; /* Increased min-height */
+        width: 100%;
+        overflow: visible;
+        /* transform set above in .content-wrapper > .interactive-demo */
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .glass-nav {
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        max-width: none;
+        border-radius: 0 0 24px 24px;
+        padding: 0 1.5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: space-between;
+        gap: 0;
+        height: 70px; /* Collapsed Height */
+        background: rgba(20, 20, 25, 0.85);
+        transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s ease;
+        overflow: hidden;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Top Bar Elements */
+    .logo {
+        height: 70px;
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        z-index: 1002;
+    }
+
+    .nav-toggle {
+        display: flex;
+        height: 70px; /* Match bar height to vertically align */
+        width: 40px;
+        background: transparent;
+        margin: 0;
+        z-index: 1002;
+    }
+
+    /* Open State */
+    .glass-nav.nav-open {
+        height: 100vh;
+        background: rgba(5, 5, 10, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom-color: transparent;
+        border-radius: 0;
+    }
+
+    /* Links Container */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+        padding-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        pointer-events: none;
+        /* Ensure it takes remaining space */
+        height: calc(100vh - 160px); 
+        overflow-y: auto;
+    }
+
+    .glass-nav.nav-open .nav-links {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        transition-delay: 0.1s;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        opacity: 0;
+        transform: translateY(15px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    
+    .glass-nav.nav-open .nav-links a {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Staggered Animation for Links */
+    .glass-nav.nav-open .nav-links > a:nth-child(1) { transition-delay: 0.1s; }
+    .glass-nav.nav-open .nav-links > a:nth-child(2) { transition-delay: 0.15s; }
+    .glass-nav.nav-open .nav-links > div:nth-child(3) a { transition-delay: 0.2s; } /* For dropdown items if expanded */
+    .glass-nav.nav-open .nav-links > a:nth-child(4) { transition-delay: 0.25s; }
+    .glass-nav.nav-open .nav-links > a:nth-child(5) { transition-delay: 0.3s; }
+    .glass-nav.nav-open .nav-links > a:nth-child(6) { transition-delay: 0.35s; }
+    
+    /* Reset delays on close so they fade out quickly */
+    .nav-links a { transition-delay: 0s; }
+
+    .nav-links a.active {
+        color: var(--accent-primary);
+    }
+
+    /* Mobile Dropdown */
+    .nav-item-dropdown {
+        flex-direction: column;
+        width: 100%;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    
+    /* Dropdown Items Animation */
+    .nav-item-dropdown .dropdown-menu {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .glass-nav.nav-open .nav-item-dropdown .dropdown-menu {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s;
+    }
+
+    /* Hide the parent link of dropdown if it's just a trigger, 
+       but here it's "Automation Flow" which is a valid link. 
+       Let's keep it. */
+
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+        visibility: visible;
+        display: flex;
+        width: 80%; /* Slightly narrower */
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+    
+    .dropdown-menu a {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        padding: 0.5rem;
+        /* Reset transform for inner links to avoid double offset */
+        transform: none !important; 
+        opacity: 1 !important;
+    }
+
+    /* Download Button in Menu */
+    .btn-download-nav {
+        width: 80%;
+        margin: 0 auto 2rem;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.1rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    
+    .glass-nav.nav-open .btn-download-nav {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.4s;
+    }
+    
+    
+    /* Layout Adjustments */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 1.5rem auto 0;
+    }
+
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    p { font-size: 1rem; line-height: 1.75; max-width: 100%; }
+
+    .hero-card {
+        max-width: 100%;
+        padding: 3rem 1.8rem;
+    }
+
+    /* Adjust Scale for Mobile - Make them larger than before */
+    .automation-demo {
+        transform: scale(0.9); /* Was 0.75 */
+        transform-origin: center;
+        margin: -10px 0;
+    }
+
+    .sku-hub-demo {
+        transform: scale(0.9); /* Was 0.75 */
+        transform-origin: center;
+    }
+    
+    .secondary-edit-demo {
+        transform: scale(0.95); /* Was 0.85 */
+        transform-origin: center;
+    }
+
+    .translation-demo {
+        transform: scale(0.9); /* Was 0.8 */
+        transform-origin: center;
+    }
+    
+    .liquid-ui-demo {
+        transform: scale(0.95); /* Was 0.85 */
+        transform-origin: center;
+    }
+    
+    .interactive-demo {
+        transform: none;
+        min-height: 320px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .automation-demo {
+        transform: scale(0.65); /* Was 0.55 */
+        width: 450px; 
+    }
+    
+    /* Center the scaled elements properly */
+    .interactive-demo {
+        overflow: hidden; /* Prevent horizontal scroll from scaled elements if width remains */
+    }
+
+    .sku-hub-demo {
+        transform: scale(0.7); /* Was 0.6 */
+    }
+
+    .jelly-ball {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .jelly-ball-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .config-window {
+        width: 180px; /* Resize directly instead of scale if possible, or scale more */
+    }
+    
+    .step-connect {
+        transform: scale(0.8);
+    }
+}
